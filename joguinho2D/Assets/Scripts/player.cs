@@ -9,11 +9,13 @@ public class player : MonoBehaviour
     public bool isJumping;
     public bool doubleJump;
     private Rigidbody2D rigid;
+    private Animator animator;    
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,23 @@ public class player : MonoBehaviour
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * speed;
+
+        if(Input.GetAxis("Horizontal") > 0f)
+        {
+            animator.SetBool("walk", true);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+
+        if(Input.GetAxis("Horizontal") < 0f)
+        {
+            animator.SetBool("walk", true);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+
+        if(Input.GetAxis("Horizontal") == 0f)
+        {
+            animator.SetBool("walk", false);
+        }
     }
 
     void Jump()
@@ -37,6 +56,7 @@ public class player : MonoBehaviour
             {
                 rigid.AddForce(new Vector2(0f,jumpForce), ForceMode2D.Impulse);
                 doubleJump = true;
+                animator.SetBool("jump", true);
             }
             else
             {
@@ -54,6 +74,7 @@ public class player : MonoBehaviour
         if(collision.gameObject.layer == 8) // layer Ground
         {
             isJumping = false;
+            animator.SetBool("jump", false);
         }    
     }
 
