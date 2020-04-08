@@ -63,6 +63,7 @@ public class player : MonoBehaviour
                 if(doubleJump)
                 {
                     rigid.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                    animator.SetBool("doubleJump", true);
                     doubleJump = false;
                 }
             }
