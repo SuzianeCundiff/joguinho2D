@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Apple.cs" />
+     <Compile Include="Assets\Scripts\FallingPlatform.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\player.cs" />
  <Reference Include="UnityEngine">

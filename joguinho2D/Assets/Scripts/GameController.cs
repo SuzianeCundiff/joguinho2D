@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
 
     public int totalScore;
     public Text scoreText;
+
+    public GameObject gameOver;
 
     public static GameController instance;
 
@@ -20,6 +24,16 @@ public class GameController : MonoBehaviour
     public void UpdateScoreText()
     {
         scoreText.text = totalScore.ToString();
+    }
+
+    public void ShowGameOver()
+    {
+        gameOver.SetActive(true);
+    }
+
+    public void RestartGame(string lvlname)
+    {
+        SceneManager.LoadScene(lvlname);
     }
 
 }
