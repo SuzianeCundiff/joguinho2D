@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,7 +78,7 @@ public class player : MonoBehaviour
             animator.SetBool("jump", false);
         }
 
-        if(collision.gameObject.tag == "Spike") // tag Spike
+        if(collision.gameObject.tag == "Spike" || collision.gameObject.tag == "Saw") // tag Spike or Saw
         {
             GameController.instance.ShowGameOver();
             Destroy(gameObject);
