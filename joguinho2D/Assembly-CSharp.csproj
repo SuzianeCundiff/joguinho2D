@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Apple.cs" />
      <Compile Include="Assets\Scripts\FallingPlatform.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\MaskDude.cs" />
      <Compile Include="Assets\Scripts\NextLevelPoint.cs" />
      <Compile Include="Assets\Scripts\Saw.cs" />
      <Compile Include="Assets\Scripts\Trampoline.cs" />
