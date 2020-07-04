@@ -11449,9 +11449,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7722033617244581487, guid: 3102d698d8f96fc4cb4a33510c0c176e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.052
+    - target: {fileID: 7722033617547098473, guid: 3102d698d8f96fc4cb4a33510c0c176e, type: 3}
+      propertyPath: layer.m_Bits
+      value: 1280
       objectReference: {fileID: 0}
     - target: {fileID: 7722033617547098477, guid: 3102d698d8f96fc4cb4a33510c0c176e, type: 3}
       propertyPath: m_Name
