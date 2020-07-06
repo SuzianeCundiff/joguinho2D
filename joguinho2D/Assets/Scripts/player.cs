@@ -9,7 +9,9 @@ public class player : MonoBehaviour
     public bool isJumping;
     public bool doubleJump;
     private Rigidbody2D rigid;
-    private Animator animator;    
+    private Animator animator;
+
+    bool isBlowing; // by default is false
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,7 @@ public class player : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump")) //isJumping precisa ser falso.
+        if(Input.GetButtonDown("Jump") && !isBlowing) //isJumping precisa ser falso.
         {
             if(!isJumping)
             {
@@ -70,7 +72,7 @@ public class player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 8) // layer Ground
         {
@@ -85,12 +87,27 @@ public class player : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 8) // layer Ground
         {
             isJumping = true;
         }  
+    }
+
+    void  OnTriggerStay2D(Collider2D collider) {
+        if(collider.gameObject.layer == 11)
+        {
+            isBlowing = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collider) {
+        if(collider.gameObject.layer == 11)
+        {
+            isBlowing = false;
+        }
+        
     }
 
 }
