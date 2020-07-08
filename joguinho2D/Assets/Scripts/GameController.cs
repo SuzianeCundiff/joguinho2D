@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
         gameOver.SetActive(true);
     }
 
+    // it's used to start and restart the game 
     public void RestartGame(string lvlname)
     {
         SceneManager.LoadScene(lvlname);
